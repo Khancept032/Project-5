@@ -56,7 +56,7 @@ def fibonacci(fnumraw):
 
 
 # md5 Route
-@app.route('/md5s/<text>')
+@app.route('/md5/<text>')
 def md5s(text):
 
     import hashlib
