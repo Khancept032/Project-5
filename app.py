@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "it works again"
+    return "it works again from github"
 
 # commented out for simplicity during setup
 
