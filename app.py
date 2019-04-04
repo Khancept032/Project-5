@@ -1,3 +1,16 @@
+"""
+CLI.py
+
+Usage:
+    app.py md5 <x>
+    app.py factorial <x>
+    app.py fibonacci <x>
+    app.py is-prime <x>
+    app.py slack-alert <x>
+    app.py kv-record
+    app.py kv-retrieve
+"""
+
 import flask, requests, json
 from flask import Flask, jsonify
 
