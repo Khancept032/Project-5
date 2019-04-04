@@ -75,8 +75,7 @@ def md5s(text):
 
 
 
-# is-prime Route
-@app.route('/is_prime/<int:num>')
+# is_prime route
 @app.route('/is_prime/<int:num>')
 
 def is_prime(num):
