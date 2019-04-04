@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 
 # DEMO CODE FROM LUKE: commented out for simplicity during setup
 # from redis import Redis
-# import jason
+# import json
 
 app = Flask(__name__)
 
@@ -81,12 +81,21 @@ def md5s(text):
 def is_prime(num):
     num = int(num)
     if num < 2:
-        return 'Enter number larger than 1'
+        return jsonify(
+            input=num
+            output='Enter number larger than 1'
+        )
     else:
         for x in range(2,num):
             if num % x == 0:
-               return 'Not a prime'
-        return 'Is a prime'
+               return jsonify(
+                   input=num
+                   output='Not a prime'
+               )
+        return jsonify(
+            input=num
+            output='Is a prime'
+        )
 
 #factorial route
 @app.route('/factorial/<fnum>')
