@@ -81,20 +81,23 @@ def md5s(text):
 def is_prime(num):
     num = int(num)
     if num < 2:
+        result = "Enter number larger than 1"
         return jsonify(
             input=num
-            output='Enter number larger than 1'
+            output=result
         )
     else:
         for x in range(2,num):
             if num % x == 0:
-               return jsonify(
+                result = "Not a prime"
+                return jsonify(
                    input=num
-                   output='Not a prime'
-               )
+                   output=result
+                )
+        result = "Is a prime"
         return jsonify(
             input=num
-            output='Is a prime'
+            output=result
         )
 
 #factorial route
