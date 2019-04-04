@@ -77,32 +77,17 @@ def md5s(text):
 
 # is-prime Route
 @app.route('/is_prime/<int:num>')
-def isprime(num):
+@app.route('/is_prime/<int:num>')
 
-  if num.isdigit():
-    x = True
+def is_prime(num):
     num = int(num)
-
-    for i in (2, num):
-
-      while x:
-
-        if num % i == 0:
-          x = False
-
-        else:
-          x = True
-
-
-          if x:
-            return "True"
-
-          else:
-            return "False"
-  else:
-    return "You must input a positive integer"
-
-
+    if num < 2:
+        return 'Enter number larger than 1'
+    else:
+        for x in range(2,num):
+            if num % x == 0:
+               return 'Not a prime'
+        return 'Is a prime'
 
 #factorial route
 @app.route('/factorial/<fnum>')
