@@ -5,12 +5,14 @@
      build: ./heavy
      ports:
        - 5001:5000
-     volumes:
-       - .:/heavy
+     # volumes:
+     #   - .:/heavy
 
    light:
      build: ./light
      ports:
        - 5002:5000
-     depends_on:
-       - heavy
+     volumes:
+       - .:/heavy
+     # depends_on:
+     #   - heavy
