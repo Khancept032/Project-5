@@ -10,8 +10,8 @@ The file in this directory called "docker-compose.yml" will make two containers,
 ## To make changes
 1. `ctrl+c` to shut down containers
 2. `docker-compose down` to clean up
-3. 'docker rmi project-5_light project-5_heavy'
 3. make changes to files and save
-4. 'docker-compose up'
+4. 'docker-compose build'
+5. 'docker-compose up'
 
 I am working on getting the containers to rebuild automatically when a change is detected, but I haven't got it working yet.

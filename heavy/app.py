@@ -20,7 +20,7 @@ def index():
 @app.route("/banana")
 def banana_handler():
     return jsonify(
-            isbanana = "yes, is a banana"
+            is_banana = "yes, is a banana"
             )
 
 
