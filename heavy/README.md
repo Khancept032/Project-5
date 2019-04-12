@@ -1,3 +1,5 @@
+# Outdated, see README_for_docker-compose
+
 ## Setting Up for Project-5
 1. Clone `https://github.com/Khancept032/Project-5` somewhere
 2. Go into the freshly cloned repo
@@ -9,7 +11,7 @@
 
 
 ## Coding for Project-5
-Steps 5-7 must be repeated every time a change to code is made. This includes fetching from origin and code that you write and want to test. 
+Steps 5-7 must be repeated every time a change to code is made. This includes fetching from origin and code that you write and want to test.
 
 
 ## Project-5

@@ -1,0 +1,18 @@
+ version: '3'
+
+ services:
+   heavy:
+     build: ./heavy
+     ports:
+       - 5001:5000
+     # volumes:
+     #   - .:/heavy
+
+   light:
+     build: ./light
+     ports:
+       - 5002:5000
+     # volumes:
+     #   - .:/heavy
+     depends_on:
+       - heavy
