@@ -12,10 +12,3 @@ services:
       - 5002:5000
     depends_on:
       - heavy
-
-  tcm:
-    build: ./tcm
-    ports:
-      - 5003:5000
-    depends_on:
-      - heavy
