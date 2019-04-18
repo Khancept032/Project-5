@@ -1,5 +1,13 @@
+"""
+CLI.py
+
+Usage:
+    app.py banana
+"""
+
 import flask, requests, json
 from flask import Flask, jsonify
+from docopt import docopt
 
 # DEMO CODE FROM LUKE: commented out for simplicity during setup
 # from redis import Redis
