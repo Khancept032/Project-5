@@ -16,7 +16,7 @@ from flask import Flask, jsonify
 
 # DEMO CODE FROM LUKE: commented out for simplicity during setup
 # from redis import Redis
-# import jason
+# import json
 
 app = Flask(__name__)
 
@@ -27,6 +27,14 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return "Hello world!"
+
+
+
+@app.route("/banana")
+def banana_handler():
+    return jsonify(
+            is_banana = "yes, is a banana"
+            )
 
 
 
@@ -90,16 +98,29 @@ def md5s(text):
 
 # is_prime route
 @app.route('/is_prime/<int:num>')
-
 def is_prime(num):
     num = int(num)
     if num < 2:
-        return 'Enter number larger than 1'
+        result = "Enter number larger than 1"
+        return jsonify(
+            input=num,
+            output=result
+        )
     else:
         for x in range(2,num):
             if num % x == 0:
-               return 'Not a prime'
-        return 'Is a prime'
+                result = "Not a prime"
+                return jsonify(
+                   input=num,
+                   output=result
+                )
+        result = "Is a prime"
+        return jsonify(
+            input=num,
+            output=result
+        )
+
+
 
 #factorial route
 @app.route('/factorial/<fnum>')
@@ -166,4 +187,4 @@ def send_slack(x):
 
 if __name__ == '__main__':
     app.debug = True
-    app.run("0.0.0.0")
+    app.run("0.0.0.0", port=5000)
