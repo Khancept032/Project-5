@@ -40,11 +40,11 @@ def record(key):
 # Retrieve Route
 @app.route('/kv-retrieve/<string:key>')
 def retrieve(key):
-    try;
+    try:
         if redis.exits(key):
                 return json.dumps({"input": "retrieve-value", "output": redis.get(key)})
         else:
-                return json.dumps({"input": "retrieve-value", "output" False, "error": "Not able to update value, the key does not exist."})
+                return json.dumps({"input": "retrieve-value", "output": False, "error": "Not able to update value, the key does not exist."})
 
     except Exception as error:
         return json.dumps({"output": False, "error": str(error)})
