@@ -1,5 +1,6 @@
 import flask, requests, json
 from flask import Flask, jsonify
+import redis
 
 # DEMO CODE FROM LUKE: commented out for simplicity during setup
 # from redis import Redis
@@ -19,6 +20,18 @@ def index():
 @app.route("/banana")
 def banana_handler():
     return "this is a banana"
+
+@app.route('/kv-retrieve/<string:key>')
+def retrieve(key):
+    try;
+        if redis.exits(key):
+                return json.dumps({"input": "retrieve-value", "output": redis.get(key)})
+        else:
+                return json.dumps({"input": "retrieve-value", "output" False, "error": "Not able to update value, the key does not exist."})
+
+    except Exception as error:
+        return json.dumps({"output": False, "error": str(error)})
+
 
 
 if __name__ == '__main__':
