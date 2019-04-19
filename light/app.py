@@ -2,14 +2,10 @@ import flask, requests, json
 from flask import Flask, jsonify
 import redis
 
-# DEMO CODE FROM LUKE: commented out for simplicity during setup
-# from redis import Redis
-# import json
 
 app = Flask(__name__)
 
-# DEMO CODE FROM LUKE: commented out for simplicity during setup
-#app.redis = Redis("host="redis", port=6379)
+
 
 # Index Route
 @app.route("/")
@@ -21,6 +17,7 @@ def index():
 def banana_handler():
     return "this is a banana"
 
+# Retrieve Route
 @app.route('/kv-retrieve/<string:key>')
 def retrieve(key):
     try;
