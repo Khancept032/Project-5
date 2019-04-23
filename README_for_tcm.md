@@ -3,10 +3,10 @@
 
 ### System Requirements:
 The system running tcm.py must have:
-1. *Docker*, for creating Docker containers
-2. *Python*
-3. the python library *docopt*
-4. the python library *requests*
+1. **Docker**, for creating Docker containers
+2. **Python**
+3. the python library **docopt**
+4. the python library **requests**
 
 ### Using this CLI
 1. Run `docker-compose up -d` while in the same directory as `docker-compose.yml`
