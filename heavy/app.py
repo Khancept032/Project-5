@@ -41,7 +41,7 @@ def retrieve(key):
 # fibonacci Route
 @app.route('/fibonacci/<fnumraw>')
 def fibonacci(fnumraw):
-
+    
     fold = 0
     fnew = 1
     fplaceholder = 0
@@ -53,86 +53,122 @@ def fibonacci(fnumraw):
 
     if fnumraw.isdigit():
         fnum = int(fnumraw)
-        fplaceholder = fnew + fold
+        fplaceholder = fnew + fold    
 
         if fold < fnum:
             farray.append(fold)
-
+    
         if fnew < fnum:
             farray.append(fnew)
 
-
+    
         while fplaceholder <= fnum:
             farray.append(fplaceholder)
             fold = fnew
             fnew = fplaceholder
             fplaceholder = fnew + fold
-
-        strfarray = ' '.join(str(e) for e in farray)
-        return strfarray
+            
+        #strfarray = ' '.join(str(e) for e in farray)
+        
+        return jsonify (
+            input = fnumraw,
+            
+            output = farray
+            )
 
     else:
-        return "You must input a positive integer"
+        return jsonify ("You must input a positive integer")
 
-# md5 Route
+#md5 route
+
 @app.route('/md5/<text>')
-def md5s(text):
-
+def md5(text):
+    
     import hashlib
-    from hashlib import md5
-
+    from hashlib import md5  
+    
+    outputtext = text
     textUtf8 = text.encode("utf-8")
-
+    
+    
     hash = hashlib.md5( textUtf8 )
     hexa = hash.hexdigest()
-
+    
     #m = hashlib.md5()
     #m.update(text.encode('utf-8'))
     #md5string=m.digest()
-
-    return hexa
-
-# is_prime route
-@app.route('/is_prime/<int:num>')
-def is_prime(num):
-    num = int(num)
-    if num < 2:
-        result = "Enter number larger than 1"
-        return jsonify(
-            input=num,
-            output=result
-        )
-    else:
-        for x in range(2,num):
-            if num % x == 0:
-                result = "Not a prime"
-                return jsonify(
-                   input=num,
-                   output=result
-                )
-        result = "Is a prime"
-        return jsonify(
-            input=num,
-            output=result
+    
+    return jsonify (
+        input = outputtext,
+        output = hexa
         )
 
+# is-prime route
+@app.route('/is_prime/<num>')
+def isprime(num):
+    
+    if num.isdigit():
+        
+        x=True
+        inum = num
+        num = int(num)
+        
+        for i in range(2, num//2):
+            if(num % i) == 0:
+                x = False
+                break
+                
+        if num == 4:
+            x = False
+            
+        if x:
+            return jsonify (
+                input = inum,
+                output = True 
+            )
+        
+        else:
+            return jsonify (
+                input = inum,
+                output = False 
+            )
+        
+    else: 
+        return jsonify ("You must input a positive integer")
+   
 #factorial route
+
 @app.route('/factorial/<fnum>')
 def factorial(fnum):
+        
+    ifnum = fnum
+    
     if fnum == "0":
-        return "1"
+        return jsonify (
+                input = ifnum,
+                output = 1 
+            )
 
     elif fnum.isdigit():
+        
         fnum = int(fnum)
         x = 1
         sfnum = fnum
+        
         while x < fnum:
             sfnum = sfnum * x
             x = x + 1
-        sfnum = str(sfnum)
-        return sfnum
+            
+        #sfnum = str(sfnum)
+        
+        return jsonify (
+                input = ifnum,
+                output = sfnum 
+            )
+    
+
     else:
-        return "You must input a positive integer"
+        return jsonify ("You must input a positive integer") 
 
 # slack-alert route
 @app.route('/send_slack/<string:x>')
