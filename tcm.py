@@ -39,19 +39,19 @@ from docopt import docopt
 import requests
 
 if args['banana']:
-    data = requests.get('http://localhost:5001/banana')
+    data = requests.get('http://192.168.99.100:5001/banana')
     print(data.text)
     data = data.json()
     print(data['is_banana'])
 
 if args['is_prime']:
-    data = requests.get('http://localhost:5001/is_prime'+'/'+args['<input>'])
+    data = requests.get('http://192.168.99.100:5001/is_prime'+'/'+args['<input>'])
     print(data.text)
     data = data.json()
     print(data['output'])
     
 if args['fibonacci']:
-    data = requests.get('http://localhost:5001/fibonacci'+'/'+args['<input>'])
+    data = requests.get('http://192.168.99.100:5001/fibonacci'+'/'+args['<input>'])
     print(data.text)
     data = data.json()
     print(data['output']) 
