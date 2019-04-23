@@ -27,7 +27,6 @@ API CLI Texas Chainsaw Managers
 Usage:
     tcm.py banana
     tcm.py is_prime <input>
-    tcm.py send_slack <input>
 
 '''
 
@@ -50,14 +49,8 @@ if args['is_prime']:
     data = data.json()
     print(data['output'])
 
- if args['kv-retrieve']:
-	data = requests.get('http://localhost:5001/kv-retrieve'+'/'+args['<input>'])
-	print(data.txt)
-	data = data.json()
-	print(data['output'])   
-	
-if args['send_slack']:
-	data = requests.get('http://localhost:5001/send_slack'+'/'+args['<input>'])
-	print(data.txt)
-	data = data.json()
-	print(data['output'])   
+if args['kv-retrieve']:
+    data = requests.get('http://localhost:5001/kv-retrieve'+'/'+args['<input>'])
+    print(data.txt)
+    data = data.json()
+    print(data['output'])   
