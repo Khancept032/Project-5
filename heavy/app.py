@@ -70,21 +70,26 @@ def fibonacci(fnumraw):
 
 # md5 Route
 @app.route('/md5/<text>')
-def md5s(text):
-
+def md5(text):
+    
     import hashlib
-    from hashlib import md5
-
+    from hashlib import md5  
+    
+    outputtext = text
     textUtf8 = text.encode("utf-8")
-
+    
+    
     hash = hashlib.md5( textUtf8 )
     hexa = hash.hexdigest()
-
+    
     #m = hashlib.md5()
     #m.update(text.encode('utf-8'))
     #md5string=m.digest()
-
-    return hexa
+    
+    return jsonify (
+        input = outputtext,
+        output = hexa
+        )
 
 
 
