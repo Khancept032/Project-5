@@ -27,7 +27,6 @@ API CLI Texas Chainsaw Managers
 Usage:
     tcm.py banana
     tcm.py is_prime <input>
-    tcm.py fibonacci <input>
 
 '''
 
@@ -53,5 +52,9 @@ if args['is_prime']:
 if args['fibonacci']:
     data = requests.get('http://192.168.99.100:5001/fibonacci'+'/'+args['<input>'])
     print(data.text)
+
+if args['kv-retrieve']:
+    data = requests.get('http://localhost:5001/kv-retrieve'+'/'+args['<input>'])
+    print(data.txt)
     data = data.json()
-    print(data['output']) 
+    print(data['output'])   
