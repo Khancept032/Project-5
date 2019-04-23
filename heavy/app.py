@@ -94,28 +94,37 @@ def md5(text):
 
 
 # is_prime route
-@app.route('/is_prime/<int:num>')
-def is_prime(num):
-    num = int(num)
-    if num < 2:
-        result = "Enter number larger than 1"
-        return jsonify(
-            input=num,
-            output=result
-        )
-    else:
-        for x in range(2,num):
-            if num % x == 0:
-                result = "Not a prime"
-                return jsonify(
-                   input=num,
-                   output=result
-                )
-        result = "Is a prime"
-        return jsonify(
-            input=num,
-            output=result
-        )
+@app.route('/is_prime/<num>')
+def isprime(num):
+    
+    if num.isdigit():
+        
+        x=True
+        inum = num
+        num = int(num)
+        
+        for i in range(2, num//2):
+            if(num % i) == 0:
+                x = False
+                break
+                
+        if num == 4:
+            x = False
+            
+        if x:
+            return jsonify (
+                input = inum,
+                output = True 
+            )
+        
+        else:
+            return jsonify (
+                input = inum,
+                output = False 
+            )
+        
+    else: 
+        return jsonify ("You must input a positive integer")
 
 
 
