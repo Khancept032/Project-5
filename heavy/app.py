@@ -28,7 +28,7 @@ def banana_handler():
 # fibonacci Route
 @app.route('/fibonacci/<fnumraw>')
 def fibonacci(fnumraw):
-
+    
     fold = 0
     fnew = 1
     fplaceholder = 0
@@ -40,26 +40,31 @@ def fibonacci(fnumraw):
 
     if fnumraw.isdigit():
         fnum = int(fnumraw)
-        fplaceholder = fnew + fold
+        fplaceholder = fnew + fold    
 
         if fold < fnum:
             farray.append(fold)
-
+    
         if fnew < fnum:
             farray.append(fnew)
 
-
+    
         while fplaceholder <= fnum:
             farray.append(fplaceholder)
             fold = fnew
             fnew = fplaceholder
             fplaceholder = fnew + fold
-
-        strfarray = ' '.join(str(e) for e in farray)
-        return strfarray
+            
+        #strfarray = ' '.join(str(e) for e in farray)
+        
+        return jsonify (
+            input = fnumraw,
+            
+            output = farray
+            )
 
     else:
-        return "You must input a positive integer"
+        return jsonify ("You must input a positive integer")
 
 
 
