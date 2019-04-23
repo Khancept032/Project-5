@@ -56,7 +56,7 @@ if args['fibonacci']:
     print(data.text)
 
 if args['kv-retrieve']:
-    data = requests.get('http://localhost:5001/kv-retrieve'+'/'+args['<input>'])
+    data = requests.get('http://192.168.99.100:5001/kv-retrieve'+'/'+args['<input>'])
     print(data.txt)
     data = data.json()
     print(data['output'])   
