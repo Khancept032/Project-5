@@ -29,6 +29,7 @@ Usage:
     tcm.py is_prime <input>
     tcm.py fibonacci <input>
     tcm.py kv-retrieve <input>
+    tcm.py factorial <input>
 
 '''
 
@@ -56,6 +57,12 @@ if args['fibonacci']:
     print(data.text)
     data = data.json()
     print(data['output'])
+    
+if args['factorial']:
+    data = requests.get('http://192.168.99.100:5001/factorial'+'/'+args['<input>'])
+    print(data.text)
+    data = data.json()
+    print(data['output']) 
 
 if args['kv-retrieve']:
     data = requests.get('http://192.168.99.100:5001/kv-retrieve'+'/'+args['<input>'])
