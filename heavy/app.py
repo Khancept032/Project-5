@@ -131,20 +131,35 @@ def isprime(num):
 #factorial route
 @app.route('/factorial/<fnum>')
 def factorial(fnum):
+        
+    ifnum = fnum
+    
     if fnum == "0":
-        return "1"
+        return jsonify (
+                input = ifnum,
+                output = 1 
+            )
 
     elif fnum.isdigit():
+        
         fnum = int(fnum)
         x = 1
         sfnum = fnum
+        
         while x < fnum:
             sfnum = sfnum * x
             x = x + 1
-        sfnum = str(sfnum)
-        return sfnum
+            
+        #sfnum = str(sfnum)
+        
+        return jsonify (
+                input = ifnum,
+                output = sfnum 
+            )
+    
+
     else:
-        return "You must input a positive integer"
+        return jsonify ("You must input a positive integer")
 
 
 
