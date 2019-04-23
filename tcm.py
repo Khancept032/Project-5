@@ -41,31 +41,31 @@ from docopt import docopt
 import requests
 
 if args['banana']:
-    data = requests.get('http://192.168.99.100:5001/banana')
+    data = requests.get('http://192.168.99.100:5000/banana')
     print(data.text)
     data = data.json()
     print(data['is_banana'])
 
 if args['is_prime']:
-    data = requests.get('http://192.168.99.100:5001/is_prime'+'/'+args['<input>'])
+    data = requests.get('http://192.168.99.100:5000/is_prime'+'/'+args['<input>'])
     print(data.text)
     data = data.json()
     print(data['output'])
     
 if args['fibonacci']:
-    data = requests.get('http://192.168.99.100:5001/fibonacci'+'/'+args['<input>'])
+    data = requests.get('http://192.168.99.100:5000/fibonacci'+'/'+args['<input>'])
     print(data.text)
     data = data.json()
     print(data['output'])
     
 if args['factorial']:
-    data = requests.get('http://192.168.99.100:5001/factorial'+'/'+args['<input>'])
+    data = requests.get('http://192.168.99.100:5000/factorial'+'/'+args['<input>'])
     print(data.text)
     data = data.json()
     print(data['output']) 
 
 if args['kv-retrieve']:
-    data = requests.get('http://192.168.99.100:5001/kv-retrieve'+'/'+args['<input>'])
+    data = requests.get('http://192.168.99.100:5000/kv-retrieve'+'/'+args['<input>'])
     print(data.txt)
     data = data.json()
     print(data['output'])   
