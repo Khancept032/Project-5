@@ -4,11 +4,11 @@ services:
   heavy:
     build: ./heavy
     ports:
-      - 5001:5000
+      - 5000:5000
 
   light:
     build: ./light
     ports:
-      - 5002:5000
+      - 5001:5000
     depends_on:
       - heavy
