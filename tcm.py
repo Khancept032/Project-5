@@ -54,6 +54,8 @@ if args['is_prime']:
 if args['fibonacci']:
     data = requests.get('http://192.168.99.100:5001/fibonacci'+'/'+args['<input>'])
     print(data.text)
+    data = data.json()
+    print(data['output'])
 
 if args['kv-retrieve']:
     data = requests.get('http://192.168.99.100:5001/kv-retrieve'+'/'+args['<input>'])
