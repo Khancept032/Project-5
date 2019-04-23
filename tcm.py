@@ -38,13 +38,11 @@ from docopt import docopt
 import requests
 
 if args['banana']:
-    data = requests.get('http://localhost:5001/banana')
     print(data.text)
     data = data.json()
     print(data['is_banana'])
 
 if args['is_prime']:
-    data = requests.get('http://localhost:5001/is_prime'+'/'+args['<input>'])
     print(data.text)
     data = data.json()
     print(data['output'])
