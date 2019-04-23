@@ -27,6 +27,8 @@ API CLI Texas Chainsaw Managers
 Usage:
     tcm.py banana
     tcm.py is_prime <input>
+    tcm.py fibonacci <input>
+    tcm.py kv-retrieve <input>
 
 '''
 
