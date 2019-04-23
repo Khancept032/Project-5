@@ -30,6 +30,7 @@ Usage:
     tcm.py fibonacci <input>
     tcm.py kv-retrieve <input>
     tcm.py factorial <input>
+    tcm.py md5 <input>
 
 '''
 
@@ -48,6 +49,12 @@ if args['banana']:
 
 if args['is_prime']:
     data = requests.get('http://192.168.99.100:5000/is_prime'+'/'+args['<input>'])
+    print(data.text)
+    data = data.json()
+    print(data['output'])
+    
+if args['md5']:
+    data = requests.get('http://192.168.99.100:5001/md5'+'/'+args['<input>'])
     print(data.text)
     data = data.json()
     print(data['output'])
