@@ -79,6 +79,7 @@ def fibonacci(fnumraw):
     else:
         return jsonify ("You must input a positive integer")
 
+
 #md5 route
 
 @app.route('/md5/<text>')
@@ -103,7 +104,8 @@ def md5(text):
         output = hexa
         )
 
-# is-prime route
+
+# is_prime route
 @app.route('/is_prime/<num>')
 def isprime(num):
     
@@ -135,6 +137,7 @@ def isprime(num):
         
     else: 
         return jsonify ("You must input a positive integer")
+
    
 #factorial route
 
@@ -165,10 +168,9 @@ def factorial(fnum):
                 input = ifnum,
                 output = sfnum 
             )
-    
-
     else:
-        return jsonify ("You must input a positive integer") 
+        return jsonify ("You must input a positive integer")
+
 
 # slack-alert route
 @app.route('/send_slack/<string:x>')
