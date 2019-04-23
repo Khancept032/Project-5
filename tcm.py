@@ -55,3 +55,16 @@ if args['fibonacci']:
     print(data.text)
     data = data.json()
     print(data['output']) 
+    
+if args['md5']:
+    data = requests.get('http://localhost:5001/md5'+'/'+args['<input>'])
+    print(data.text)
+    data = data.json()
+    print(data['output']) 
+    
+if args['factorial']:
+    data = requests.get('http://localhost:5001/factorial'+'/'+args['<input>'])
+    print(data.text)
+    data = data.json()
+    print(data['output'])    
+    
