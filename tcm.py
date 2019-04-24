@@ -38,9 +38,12 @@ if args['is-prime']:
     human('is-prime', args['<input>'], data)
 
 if args['md5']:
-    data = requests.get('http://localhost:5000/md5/' + args['<input>'])
+    sentence = ''
+    for word in args['<input>']:
+        sentence = sentence + word + ' '
+    data = requests.get('http://localhost:5000/md5/' + sentence)
     # print(data.text)      # for debugging
-    human('md5', args['<input>'], data)
+    human('md5', sentence, data)
 
 if args['fibonacci']:
     data = requests.get('http://localhost:5000/fibonacci/' + args['<input>'])
