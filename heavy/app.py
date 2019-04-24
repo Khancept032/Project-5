@@ -106,7 +106,7 @@ def md5(text):
 
 
 # is_prime route
-@app.route('/is_prime/<num>')
+@app.route('/is-prime/<num>')
 def isprime(num):
 
     if num.isdigit():
