@@ -15,11 +15,9 @@ Usage:
 '''
 
 from docopt import docopt
+import requests
 
 args = docopt(usage)
-
-from docopt import docopt
-import requests
 
 def human(com, arg, res):
     res = res.json()
