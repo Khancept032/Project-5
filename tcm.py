@@ -8,6 +8,7 @@ Usage:
     tcm.py md5 <input>
     tcm.py fibonacci <input>
     tcm.py factorial <input>
+    tcm.py slack-alert <input>...
     tcm.py kv-record <input>
     tcm.py kv-retrieve <input>
 
@@ -50,6 +51,14 @@ if args['factorial']:
     data = requests.get('http://localhost:5000/factorial/' + args['<input>'])
     # print(data.text)      # for debugging
     human('factorial', args['<input>'], data)
+
+if args['slack-alert']:
+    sentence = ''
+    for word in args['<input>']:
+        sentence = sentence + word + ' '
+    data = requests.get('http://localhost:5000/send_slack/' + sentence)
+    # print(data.text)      # for debugging
+    human('kv-record', sentence, data)
 
 if args['kv-record']:
     data = requests.get('http://localhost:5000/kv-record/' + args['<input>'])
