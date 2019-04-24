@@ -16,7 +16,9 @@ def index():
 
 @app.route("/banana")
 def banana_handler():
-    return "this is a banana"
+    return jsonify(
+            output = "yes, is a banana"
+            )
 
 # Retrieve Route
 @app.route('/kv-retrieve/<string:key>')
