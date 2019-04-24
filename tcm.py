@@ -5,7 +5,7 @@ API CLI Texas Chainsaw Managers
 Usage:
     tcm.py banana
     tcm.py is-prime <input>
-    tcm.py md5 <input>
+    tcm.py md5 <input>...
     tcm.py fibonacci <input>
     tcm.py factorial <input>
     tcm.py slack-alert <input>...
