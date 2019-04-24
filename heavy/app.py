@@ -17,14 +17,14 @@ def banana_handler():
             )
 
 # Record Route
-@app.route("/kv-record/<string:key>")
-def record(key):
-    data = request.data.decode("utf-8")
-    post = json.loads(data)
+# @app.route("/kv-record/<string:key>")
+# def record(key):
+#     data = request.data.decode("utf-8")
+#     post = json.loads(data)
 
-    app.redis.set(key, json.dumps(post))
+#     app.redis.set(key, json.dumps(post))
 
-    return "True"
+#     return "True"
 
 # Retrieve Route
 @app.route('/kv-retrieve/<string:key>')
