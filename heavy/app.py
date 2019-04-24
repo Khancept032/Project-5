@@ -41,7 +41,7 @@ def retrieve(key):
 # fibonacci Route
 @app.route('/fibonacci/<fnumraw>')
 def fibonacci(fnumraw):
-    
+
     fold = 0
     fnew = 1
     fplaceholder = 0
@@ -53,26 +53,26 @@ def fibonacci(fnumraw):
 
     if fnumraw.isdigit():
         fnum = int(fnumraw)
-        fplaceholder = fnew + fold    
+        fplaceholder = fnew + fold
 
         if fold < fnum:
             farray.append(fold)
-    
+
         if fnew < fnum:
             farray.append(fnew)
 
-    
+
         while fplaceholder <= fnum:
             farray.append(fplaceholder)
             fold = fnew
             fnew = fplaceholder
             fplaceholder = fnew + fold
-            
+
         #strfarray = ' '.join(str(e) for e in farray)
-        
+
         return jsonify (
             input = fnumraw,
-            
+
             output = farray
             )
 
@@ -84,21 +84,21 @@ def fibonacci(fnumraw):
 
 @app.route('/md5/<text>')
 def md5(text):
-    
+
     import hashlib
-    from hashlib import md5  
-    
+    from hashlib import md5
+
     outputtext = text
     textUtf8 = text.encode("utf-8")
-    
-    
+
+
     hash = hashlib.md5( textUtf8 )
     hexa = hash.hexdigest()
-    
+
     #m = hashlib.md5()
     #m.update(text.encode('utf-8'))
     #md5string=m.digest()
-    
+
     return jsonify (
         input = outputtext,
         output = hexa
@@ -108,65 +108,65 @@ def md5(text):
 # is_prime route
 @app.route('/is_prime/<num>')
 def isprime(num):
-    
+
     if num.isdigit():
-        
+
         x=True
         inum = num
         num = int(num)
-        
+
         for i in range(2, num//2):
             if(num % i) == 0:
                 x = False
                 break
-                
+
         if num == 4:
             x = False
-            
+
         if x:
             return jsonify (
                 input = inum,
-                output = True 
+                output = True
             )
-        
+
         else:
             return jsonify (
                 input = inum,
-                output = False 
+                output = False
             )
-        
-    else: 
+
+    else:
         return jsonify ("You must input a positive integer")
 
-   
+
 #factorial route
 
 @app.route('/factorial/<fnum>')
 def factorial(fnum):
-        
+
     ifnum = fnum
-    
+
     if fnum == "0":
         return jsonify (
                 input = ifnum,
-                output = 1 
+                output = 1
             )
 
     elif fnum.isdigit():
-        
+
         fnum = int(fnum)
         x = 1
         sfnum = fnum
-        
+
         while x < fnum:
             sfnum = sfnum * x
             x = x + 1
-            
+
         #sfnum = str(sfnum)
-        
+
         return jsonify (
                 input = ifnum,
-                output = sfnum 
+                output = sfnum
             )
     else:
         return jsonify ("You must input a positive integer")

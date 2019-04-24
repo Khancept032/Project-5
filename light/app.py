@@ -1,13 +1,5 @@
-"""
-CLI.py
-
-Usage:
-    app.py banana
-"""
-
 import flask, requests, json
 from flask import Flask, jsonify
-from docopt import docopt
 import redis
 
 
@@ -33,7 +25,7 @@ def retrieve(key):
         if redis.exits(key):
                 return json.dumps({"input": "retrieve-value", "output": redis.get(key)})
         else:
-                return json.dumps({"input": "retrieve-value", "output" False, "error": "Not able to update value, the key does not exist."})
+                return json.dumps({"input": "retrieve-value", "output": False, "error": "Not able to update value, the key does not exist."})
 
     except Exception as error:
         return json.dumps({"output": False, "error": str(error)})
