@@ -1,4 +1,4 @@
-import flask, request, json
+import flask, request
 from flask import Flask, jsonify
 import redis
 
