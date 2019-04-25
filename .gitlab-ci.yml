@@ -11,8 +11,8 @@ pushing-to-master:
     stage: test
     only:
         - master
-    before_script:
-        - sudo service docker restart
+    # before_script:
+    #     - sudo service docker restart
     script:
         # - apt-get install python3
         # - apt-get install -y python-pip
