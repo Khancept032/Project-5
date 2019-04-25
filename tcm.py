@@ -63,11 +63,11 @@ if args['slack-alert']:
     human('slack-alert', sentence, data)
 
 if args['kv-record']:
-    data = requests.get('http://localhost:5000/kv-record/' + args['<input>'])
+    data = requests.get('http://localhost:5000/kv-record/' + str(args['<input>'][0]))
     # print(data.text)      # for debugging
     human('kv-record', args['<input>'], data)
 
 if args['kv-retrieve']:
-    data = requests.get('http://localhost:5001/kv-retrieve/' + args['<input>'])
+    data = requests.get('http://localhost:5001/kv-retrieve/' + str(args['<input>'][0]))
     # print(data.text)      # for debugging
     human('kv-retrieve', args['<input>'], data)
