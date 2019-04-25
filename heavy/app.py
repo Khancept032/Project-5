@@ -1,6 +1,5 @@
-import flask, requests, json
+import flask, requests, json, redis
 from flask import Flask, jsonify
-import redis
 
 app = Flask(__name__)
 
@@ -26,8 +25,7 @@ def banana_handler():
 
 #     return "True"
 
-# Record Rout Version 2
-
+# Record Route Version 2
 @app.route('/kv-record/<string:key>', methods = ["POST", "PUT"])
 def record(key):
 	try:

@@ -24,7 +24,7 @@ def banana_handler():
 @app.route('/kv-retrieve/<string:key>')
 def retrieve(key):
     try:
-        if redis.exits(key):
+        if redis.exit(key):
                 return json.dumps({"input": "retrieve-value", "output": redis.get(key)})
         else:
                 return json.dumps({"input": "retrieve-value", "output": False, "error": "Not able to update value, the key does not exist."})
