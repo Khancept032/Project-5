@@ -15,7 +15,6 @@ pushing-to-master:
         # - apt-get install python3
         # - apt-get install -y python-pip
         # - pip install docker-compose
-        - service docker restart
         - docker-compose up -d --build
         - python tcm.py banana
         - python tcm.py is-prime 26
@@ -23,7 +22,9 @@ pushing-to-master:
         - python tcm.py fibonacci 99
         - python tcm.py factorial 7
         - python tcm.py slack-alert This is an automated test
-    environment: master
+    environment: master\
+    after_script:
+        - service docker restart
 
 pushing-to-deploy:
     stage: prod
