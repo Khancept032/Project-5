@@ -1,5 +1,6 @@
-import flask, requests, json, redis
+import request, json
 from flask import Flask, jsonify
+from redis import Redis
 
 app = Flask(__name__)
 
@@ -45,7 +46,7 @@ def record(key):
 				return json.dumps({"input": "existing-key", "output": True})
 			else:
 				return json.dumps({"input": "existing-key", "output": False, "error": "Not able to update value: the key does not exist."})
-		else:
+		else:''
 			raise
 
 	except Exception as error:
