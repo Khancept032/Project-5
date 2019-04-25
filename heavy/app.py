@@ -1,6 +1,6 @@
-import flask, requests, json, redis
+import flask, requests, json
 from flask import Flask, jsonify
-from redis import Redis
+import Redis
 
 app = Flask(__name__)
 
