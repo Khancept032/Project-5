@@ -19,6 +19,9 @@ import requests
 
 args = docopt(usage)
 
+str(args['<input>'][0])
+
+
 def human(com, arg, res):
     res = res.json()
     print('\n\tCLI command: \t' + com + ' ' + str(arg))
@@ -31,7 +34,7 @@ if args['banana']:
     human('banana', '', data)
 
 if args['is-prime']:
-    data = requests.get('http://localhost:5000/is_prime/' + args['<input>'])
+    data = requests.get('http://localhost:5000/is_prime/' + str(args['<input>'][0]))
     # print(data.text)      # for debugging
     human('is-prime', args['<input>'], data)
 
@@ -44,12 +47,12 @@ if args['md5']:
     human('md5', sentence, data)
 
 if args['fibonacci']:
-    data = requests.get('http://localhost:5000/fibonacci/' + args['<input>'])
+    data = requests.get('http://localhost:5000/fibonacci/' + str(args['<input>'][0]))
     # print(data.text)      # for debugging
     human('fibonacci', args['<input>'], data)
 
 if args['factorial']:
-    data = requests.get('http://localhost:5000/factorial/' + args['<input>'])
+    data = requests.get('http://localhost:5000/factorial/' + str(args['<input>'][0]))
     # print(data.text)      # for debugging
     human('factorial', args['<input>'], data)
 
