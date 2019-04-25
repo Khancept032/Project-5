@@ -15,5 +15,6 @@ pushing-to-master:
         # - apt-get install -y python-pip
         # - pip install docker-compose
         - docker-compose up -d --build
+        - python tcm.py banana
         - echo "script for testing all endpoints here"
     environment: master
