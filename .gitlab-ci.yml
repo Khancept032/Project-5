@@ -8,7 +8,7 @@ stages:
     - prod
 
 pushing-to-master:
-    stage: prod
+    stage: test
     only:
         - master
     script:
@@ -23,3 +23,20 @@ pushing-to-master:
         - python tcm.py factorial 7
         - python tcm.py slack-alert This is an automated test
     environment: master
+
+pushing-to-deploy:
+    stage: prod
+    only:
+        - GitLab-Prod
+    script:
+        # - apt-get install python3
+        # - apt-get install -y python-pip
+        # - pip install docker-compose
+        - docker-compose up -d --build
+        - python tcm.py banana
+        - python tcm.py is-prime 26
+        - python tcm.py md5 a test string
+        - python tcm.py fibonacci 99
+        - python tcm.py factorial 7
+        - python tcm.py slack-alert This is an automated test
+    environment: GitLab-Prod
