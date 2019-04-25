@@ -11,6 +11,8 @@ pushing-to-master:
     stage: test
     only:
         - master
+    before_script:
+        - sudo service docker restart
     script:
         # - apt-get install python3
         # - apt-get install -y python-pip
@@ -23,8 +25,7 @@ pushing-to-master:
         - python tcm.py factorial 7
         - python tcm.py slack-alert This is an automated test
     environment: master\
-    after_script:
-        - service docker restart
+
 
 pushing-to-deploy:
     stage: prod
