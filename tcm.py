@@ -32,7 +32,7 @@ if args['banana']:
     human('banana', '', data)
 
 if args['is-prime']:
-    data = requests.get('http://localhost:5000/is_prime/' + str(args['<input>'][0]))
+    data = requests.get('http://localhost:5000/is-prime/' + str(args['<input>'][0]))
     # print(data.text)      # for debugging
     human('is-prime', args['<input>'], data)
 
