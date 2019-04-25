@@ -19,9 +19,6 @@ import requests
 
 args = docopt(usage)
 
-str(args['<input>'][0])
-
-
 def human(com, arg, res):
     res = res.json()
     print('\n\tCLI command: \t' + com + ' ' + str(arg))
