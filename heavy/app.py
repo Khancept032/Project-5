@@ -179,7 +179,7 @@ def send_slack(x):
     #print("Input: ", x)
 
     #change the url depending on the channel you want to post to
-    web_hook_url = 'https://hooks.slack.com/services/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'
+    web_hook_urlTESTERROR = 'https://hooks.slack.com/services/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'
 
     #x = 6
     slack_msg = {'text':x}
