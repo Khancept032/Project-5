@@ -71,9 +71,12 @@ if args['slack-alert']:
     human('kv-record', sentence, data)
 
 if args['kv-record']:
-    data = requests.get('http://192.168.99.100:5000/kv-record/' + args['<input>'])
+    sentence = ''
+    for word in args['<input>']:
+        sentence = sentence + word + ' '
+    data = requests.get('http://192.168.99.100:5000/kv-record/' + sentence)
     # print(data.text)      # for debugging
-    human('kv-record', args['<input>'], data)
+    human('kv-record', sentence, data)
 
 if args['kv-retrieve']:
     data = requests.get('http://192.168.99.100:5001/kv-retrieve/' + args['<input>'])
