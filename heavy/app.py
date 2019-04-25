@@ -49,7 +49,7 @@ def record(key):
 				return json.dumps({"input": "existing-key", "output": False, "error": "Not able to update value: the key does not exist."})
 		else:
 			raise
-			
+
 	except Exception as error:
 		return json.dumps({"output": False, "error": str(error)})
 
@@ -220,4 +220,4 @@ if __name__ == '__main__':
     app.debug = True
     app.run("0.0.0.0", port=5000)
 
-# a test change #3
+# a test change #4
