@@ -15,6 +15,7 @@ pushing-to-master:
         # - apt-get install python3
         # - apt-get install -y python-pip
         # - pip install docker-compose
+        - service docker restart
         - docker-compose up -d --build
         - python tcm.py banana
         - python tcm.py is-prime 26
