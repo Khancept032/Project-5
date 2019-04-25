@@ -12,7 +12,7 @@ pushing-to-master:
     only:
         - master
     script:
-        - apt install -y python-pip
+        - apk add python-pip
         - pip install docker-compose
         - docker-compose up -d --build
         - python tcm.py banana
