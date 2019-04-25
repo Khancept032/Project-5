@@ -16,5 +16,9 @@ pushing-to-master:
         # - pip install docker-compose
         - docker-compose up -d --build
         - python tcm.py banana
-        - echo "script for testing all endpoints here"
+        - python tcm.py is-prime 26
+        - python tcm.py md5 a test string
+        - python tcm.py fibonacci 99
+        - python tcm.py factorial 7
+        - python tcm.py slack-alert This is an automated test
     environment: master
