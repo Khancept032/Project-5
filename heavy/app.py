@@ -26,7 +26,8 @@ def banana_handler():
 
 #     return "True"
 
-# Record Route Version 2
+# Record Rout Version 2
+
 @app.route('/kv-record/<string:key>', methods = ["POST", "PUT"])
 def record(key):
 	try:
@@ -46,7 +47,7 @@ def record(key):
 				return json.dumps({"input": "existing-key", "output": True})
 			else:
 				return json.dumps({"input": "existing-key", "output": False, "error": "Not able to update value: the key does not exist."})
-		else:''
+		else:
 			raise
 
 	except Exception as error:
@@ -56,7 +57,7 @@ def record(key):
 @app.route('/kv-retrieve/<string:key>')
 def retrieve(key):
     try:
-        if redis.exists(key):
+        if redis.exits(key):
                 return json.dumps({"input": "retrieve-value", "output": redis.get(key)})
         else:
                 return json.dumps({"input": "retrieve-value", "output": False, "error": "Not able to update value, the key does not exist."})
