@@ -26,47 +26,56 @@ def human(com, arg, res):
     return
 
 if args['banana']:
-    data = requests.get('http://localhost:5000/banana')
+    data = requests.get('http://192.168.99.100:5000/banana')
     # print(data.text)      # for debugging
     human('banana', '', data)
 
 if args['is-prime']:
-    data = requests.get('http://localhost:5000/is_prime/' + args['<input>'])
+    sentence = ''
+    for word in args['<input>']:
+        sentence = word
+    data = requests.get('http://192.168.99.100:5000/is-prime/' + sentence)
     # print(data.text)      # for debugging
-    human('is-prime', args['<input>'], data)
+    human('is-prime', sentence, data)
 
 if args['md5']:
     sentence = ''
     for word in args['<input>']:
         sentence = sentence + word + ' '
-    data = requests.get('http://localhost:5000/md5/' + sentence)
+    data = requests.get('http://192.168.99.100:5000/md5/' + sentence)
     # print(data.text)      # for debugging
     human('md5', sentence, data)
 
 if args['fibonacci']:
-    data = requests.get('http://localhost:5000/fibonacci/' + args['<input>'])
+    sentence = ''
+    for word in args['<input>']:
+        sentence = word
+    data = requests.get('http://192.168.99.100:5000/fibonacci/' + sentence)
     # print(data.text)      # for debugging
-    human('fibonacci', args['<input>'], data)
+    human('fibonacci', sentence, data)
 
 if args['factorial']:
-    data = requests.get('http://localhost:5000/factorial/' + args['<input>'])
+    sentence = ''
+    for word in args['<input>']:
+        sentence = word
+    data = requests.get('http://192.168.99.100:5000/factorial/' + sentence)
     # print(data.text)      # for debugging
-    human('factorial', args['<input>'], data)
+    human('factorial', sentence, data)
 
 if args['slack-alert']:
     sentence = ''
     for word in args['<input>']:
         sentence = sentence + word + ' '
-    data = requests.get('http://localhost:5000/send_slack/' + sentence)
+    data = requests.get('http://192.168.99.100:5000/send_slack/' + sentence)
     # print(data.text)      # for debugging
     human('kv-record', sentence, data)
 
 if args['kv-record']:
-    data = requests.get('http://localhost:5000/kv-record/' + args['<input>'])
+    data = requests.get('http://192.168.99.100:5000/kv-record/' + args['<input>'])
     # print(data.text)      # for debugging
     human('kv-record', args['<input>'], data)
 
 if args['kv-retrieve']:
-    data = requests.get('http://localhost:5001/kv-retrieve/' + args['<input>'])
+    data = requests.get('http://192.168.99.100:5001/kv-retrieve/' + args['<input>'])
     # print(data.text)      # for debugging
     human('kv-retrieve', args['<input>'], data)
