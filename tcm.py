@@ -20,6 +20,7 @@ import requests
 args = docopt(usage)
 
 def human(com, arg, res):
+    print(res.text)
     res = res.json()
     print('\n\tCLI command: \t' + com + ' ' + str(arg))
     print('\tAPI response: \t' + str(res['output']) + '\n')
