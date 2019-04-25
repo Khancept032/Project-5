@@ -24,7 +24,7 @@ pushing-to-master:
         - python tcm.py fibonacci 99
         - python tcm.py factorial 7
         - python tcm.py slack-alert This is an automated test
-    environment: master\
+    environment: master
 
 
 pushing-to-deploy:
