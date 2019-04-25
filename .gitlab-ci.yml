@@ -12,6 +12,7 @@ pushing-to-master:
     only:
         - master
     script:
+        - sudo apt-get install python3.6
         - sudo apt-get install -y python-pip
         - sudo pip install docker-compose
         - sudo docker-compose up -d --build
