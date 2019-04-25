@@ -1,0 +1,17 @@
+image: docker
+
+services:
+    - docker:dind
+    
+stages:
+    - test
+    - prod
+    
+pushing-to-master:
+    stage: prod
+    only:
+        - master
+    script:
+        - sudo docker-compose up -d --build
+        - echo "script for testing all endpoints here"
+    environment: master
