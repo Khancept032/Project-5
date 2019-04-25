@@ -29,28 +29,37 @@ def banana_handler():
 # Record Route Version 2
 @app.route('/kv-record/<string:key>', methods = ["POST", "PUT"])
 def record(key):
-	try:
-		data = request.get_json(force=True)
-		value = data['value']
-		key = data['key']
-		if request.method == "POST":
-			if redis.exists(key):
-				return json.dumps({"input": "new-key", "output": False, "error": "Not able to add pair: the key already exists."})
-			else:
-				redis.set(key, value)
-				return json.dumps({"input": "new-key", "output": True})
-
-		elif request.method == "PUT":
-			if redis.exists(key):
-				redis.set(key, value)
-				return json.dumps({"input": "existing-key", "output": True})
-			else:
-				return json.dumps({"input": "existing-key", "output": False, "error": "Not able to update value: the key does not exist."})
-		else:''
-			raise
-
-	except Exception as error:
-		return json.dumps({"output": False, "error": str(error)})
+	data = request.data.decode("utf-8")
+    checkValue = app.redis.get(key)
+    if (checkValue==None) and request.method=="PUT"):
+        return jsonify(
+            input=key,
+            output=false,
+            error="Value doesn't exist"
+        ),400
+    elif(not checkValue == None) and request.method=="POST"):
+        return jsonify(
+            input=key,
+            output=False,
+            error="Value already exists"
+        ), 400
+    elif (not checkValue == None) and (request.method=="PUT"):
+        app.redis.set(key,data)
+        return jsonify(
+            input=key,
+            output=True
+        )
+    if (checkValue == True):
+        app.redis.set(key,data)
+        return jsonify(
+            input=key,
+            output=True
+        )
+    app.redis.set(key,data)
+    return jsonify(
+        input=key,
+        output=True
+    )
 
 # Retrieve Route
 @app.route('/kv-retrieve/<string:key>')
