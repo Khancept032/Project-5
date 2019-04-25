@@ -59,7 +59,7 @@ if args['slack-alert']:
         sentence = sentence + word + ' '
     data = requests.get('http://localhost:5000/send_slack/' + sentence)
     # print(data.text)      # for debugging
-    human('kv-record', sentence, data)
+    human('slack-alert', sentence, data)
 
 if args['kv-record']:
     data = requests.get('http://localhost:5000/kv-record/' + args['<input>'])
